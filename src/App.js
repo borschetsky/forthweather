@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-import Config from './config';
 import usePosition from './hooks/usePosition';
 import HourItem from './components/HourItem';
 import Loader from "./components/Loader";
 import Error from './components/Error';
+import { getWether } from './api';
+
 import './App.scss';
 
 import { generateIconImageLink } from './utils/utils';
@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     if (position) {
-      axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${position.latitude}&lon=${position.longitude}&units=metric&appid=${Config.apiKey}`)
+      getWether(position.latitude, position.longitude)
         .then((response) => {
           setWeatherData(response.data);
           setIsLoading(false);
@@ -64,7 +64,6 @@ function App() {
             <div className="weather-header">
               <div>{weatherData?.city?.name}, {weatherData?.city?.country}</div>
             </div>
-
             <div className="weather-info-container">
               <div className="weather-info__date"> {new Date(weatherData?.list[0].dt_txt).toLocaleDateString('default', { month: 'long', weekday: 'long', day: 'numeric' })}</div>
               <div className="weather-info__temperature">

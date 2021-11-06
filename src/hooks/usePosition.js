@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import axios from 'axios';
+import { getPosition } from '../api';
 
 const usePosition = () => {
-  const locationAPI = 'https://ip.nf/me.json'
   const [position, setPosition] = useState(null);
   const [positionError, setPositionError] = useState(null);
   const [navigatorError, setNavigatorError] = useState(false);
@@ -19,7 +18,7 @@ const usePosition = () => {
         });
       }
     } else {
-      axios.get(locationAPI)
+      getPosition()
         .then((res) => {
           const { latitude, longitude } = res.data.ip;
           let result = {};
