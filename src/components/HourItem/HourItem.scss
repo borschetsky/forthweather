@@ -1,0 +1,23 @@
+.hour-item{
+  border-right: 1px solid grey;
+  padding: 4px;
+  margin-bottom: 10px;
+  .time {
+    font-size: 13px;
+  }
+  .temperature{
+    font-size: 13px;
+
+  }
+  img {
+    width: 50px;
+  }
+  &:last-child{
+    border-right: none;
+
+  }
+
+  &:hover, &.active{
+    background: grey;
+  }
+}

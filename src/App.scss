@@ -1,0 +1,78 @@
+$background-color: #343a40;
+
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  .weather-container{
+    min-width: 366px;
+    background-color: $background-color;
+    border-radius: 15px;
+    padding: 24px;
+    .weather-header{
+      display: flex;
+    }
+  }
+  .weather-info-container{
+    margin: 15px 0 15px 0;
+    .weather-info__date{
+      display: flex;
+      justify-content: center;
+    }
+    .weather-info__temperature{
+      display: flex;
+      justify-content: center;
+      .current-temp{
+        
+          margin-left: 15px;
+          margin-right: 15px;
+          font-size: 80px;
+        
+
+      }
+    }
+  }
+  .header-city{
+    float: left;
+  }
+}
+
+.temperature{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 15px;
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+.current-temp{
+  display: flex;
+  span{
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+
+.day-selector{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-around
+}
+
+.hour-data {
+ 
+    .hour-data__title{
+      margin-bottom: 15px;
+    }
+    .hour-data__cards{
+      display: flex;
+      overflow-x: scroll;
+      max-width: 366px;
+    }
+}
